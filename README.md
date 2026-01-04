@@ -1,32 +1,39 @@
-# 🤖 Projet Cobot – Détection d’Anomalies avec PatchCore
+# 🔌 Projet Cobot – Détection d’Anomalies des Wall Plugs avec PatchCore
 
 ## 📌 Présentation du projet
 
-Ce projet vise à **concevoir et simuler un robot collaboratif (Cobot)** intégrant un système de **détection d’anomalies basé sur le modèle PatchCore**.  
-L’objectif est d’analyser le comportement du cobot ou l’état visuel de ses composants afin d’identifier automatiquement des situations anormales (défauts, anomalies, comportements inhabituels).
+Ce projet a pour objectif la **détection automatique d’anomalies sur des wall plugs (prises murales)** à l’aide d’un **système de vision artificielle basé sur le modèle PatchCore**.  
+Il s’inscrit dans un contexte **industriel et de contrôle qualité**, où l’identification rapide de défauts visuels est essentielle pour garantir la sécurité et la fiabilité des produits.
 
-Le projet est implémenté en **Python**, exécuté via **Jupyter Notebook**, et exploite un **modèle PatchCore pré-entraîné** sauvegardé dans le fichier `patchcore_model.pth`.
+Le système utilise un **modèle PatchCore pré-entraîné** (`patchcore_model.pth`) afin de détecter des défauts tels que :
+- fissures,
+- déformations,
+- anomalies de surface,
+- défauts d’assemblage,
+- variations visuelles anormales.
+
+Le projet est implémenté en **Python**, exécuté via **Jupyter Notebook**, et repose sur **PyTorch** pour l’inférence du modèle.
 
 ---
 
 ## 🎯 Objectifs du projet
 
-- Comprendre le fonctionnement d’un **robot collaboratif**
 - Mettre en place une **détection d’anomalies non supervisée**
-- Utiliser **PatchCore** pour l’analyse d’images ou de données visuelles
-- Exploiter **PyTorch** pour le chargement et l’inférence du modèle
-- Visualiser et analyser les résultats de détection
+- Identifier automatiquement les **défauts visuels des wall plugs**
+- Exploiter le modèle **PatchCore** pour l’analyse d’images industrielles
+- Visualiser les anomalies détectées (scores et heatmaps)
+- Fournir une base exploitable pour un **système de contrôle qualité automatisé**
 
 ---
 
-## 🧠 PatchCore – Principe général
+## 🧠 PatchCore – Principe de fonctionnement
 
 **PatchCore** est une méthode de détection d’anomalies basée sur :
-- L’extraction de **caractéristiques profondes** via un réseau CNN
-- La mémorisation de patches représentatifs de données normales
-- Le calcul de distances pour détecter des écarts anormaux
+- l’extraction de **caractéristiques profondes** via un réseau convolutionnel,
+- la mémorisation des **patches représentatifs des images normales**,
+- le calcul de distances pour détecter des **écarts anormaux**.
 
-Le fichier **`patchcore_model.pth`** contient le modèle PatchCore déjà entraîné, utilisé directement pour l’inférence.
+Le fichier **`patchcore_model.pth`** correspond à un modèle entraîné uniquement sur des **wall plugs normaux**, ce qui permet de détecter toute anomalie sans apprentissage supervisé.
 
 ---
 
@@ -60,7 +67,7 @@ ProjetCobot/
 ### 1️⃣ Cloner le projet
 
 ```bash
-git clone https://github.com/AchrafMenach/ProjetCobot.git
+git clone https://github.com/AchrafMenach/Projet-Cobot-D-tection-d-Anomalies-avec-PatchCore
 cd ProjetCobot
 ```
 
@@ -70,7 +77,7 @@ cd ProjetCobot
 pip install -r requirements.txt
 ```
 
-⚠️ Pour une exécution avec GPU (CUDA), installe PyTorch depuis le site officiel.
+⚠️ Pour une exécution avec GPU (CUDA), installer PyTorch depuis le site officiel.
 
 ### 3️⃣ Lancer le notebook
 
@@ -89,28 +96,29 @@ ProjetCobot.ipynb
 ## ⚙️ Fonctionnalités principales
 
 * Chargement du modèle `patchcore_model.pth`
-* Extraction de caractéristiques
-* Détection d’anomalies
-* Visualisation des scores et heatmaps
-* Analyse du comportement du cobot
+* Analyse d’images de wall plugs
+* Calcul des scores d’anomalie
+* Génération de heatmaps de défauts
+* Visualisation et interprétation des résultats
 
 ---
 
 ## 📊 Résultats attendus
 
-* Identification claire des anomalies
-* Visualisation graphique des zones suspectes
-* Évaluation de la performance du modèle
-* Amélioration de la sécurité et de la fiabilité du cobot
+* Détection fiable des anomalies visuelles
+* Localisation précise des zones défectueuses
+* Réduction des erreurs de contrôle manuel
+* Amélioration du processus de contrôle qualité
 
 ---
 
 ## 🔮 Perspectives d’amélioration
 
-* Entraînement du modèle sur des données spécifiques
-* Intégration temps réel avec capteurs ou caméra
-* Utilisation de modèles plus avancés (ViT, Transformers)
-* Déploiement industriel
+* Entraînement du modèle sur un dataset plus large
+* Intégration d’une caméra industrielle en temps réel
+* Couplage avec un cobot pour le tri automatique
+* Intégration avec ROS / systèmes industriels
+* Déploiement en environnement de production
 
 ---
 
@@ -123,9 +131,11 @@ ProjetCobot.ipynb
 
 ## 📜 Licence
 
-Projet réalisé dans un **cadre pédagogique et académique**.
-Toute utilisation doit mentionner l’auteur et la source du projet.
+Ce projet est réalisé dans un **cadre pédagogique et académique**.
+Toute réutilisation doit mentionner l’auteur et le contexte du projet.
 
 ---
 
-✨ *Projet réalisé avec Python, PyTorch et PatchCore*
+✨ *Projet de détection d’anomalies industrielles des wall plugs avec PatchCore et PyTorch*
+
+
